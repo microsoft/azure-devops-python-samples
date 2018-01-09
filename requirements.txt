@@ -1,0 +1,2 @@
+# if you just want the command-line samples experience, use this requirements file
+vsts==0.1.0b2

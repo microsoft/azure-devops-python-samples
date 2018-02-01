@@ -50,7 +50,7 @@ def temporarily_disabled():
 ###
 
 def _trim_headers(headers):
-    sensitive_headers = [
+    trimmable_headers = [
         "X-VSS-PerfData",
         "X-TFS-Session",
         "X-VSS-E2EID",
@@ -62,13 +62,26 @@ def _trim_headers(headers):
         "P3P",
         "X-Powered-By",
         "Cookie",
+        "X-TFS-FedAuthRedirect",
+        "Strict-Transport-Security",
+        "X-Frame-Options",
+        "X-Content-Type-Options",
+        "X-AspNet-Version",
+        "Server",
+        "Pragma",
+        "vary",
+        "X-MSEdge-Ref",
+        "Cache-Control",
+        "Date",
+        "User-Agent",
+        "Accept-Language",
     ]
 
     cleaned_headers = headers.copy()
 
-    for sensitive_header in sensitive_headers:
+    for trim_header in trimmable_headers:
         try:
-            del cleaned_headers[sensitive_header]
+            del cleaned_headers[trim_header]
         except KeyError:
             pass
 

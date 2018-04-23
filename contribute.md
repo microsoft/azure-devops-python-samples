@@ -56,3 +56,8 @@
 Have a sample method create a resource (to demonstrate creation).
 Have a later sample method delete the previously created resource.
 In between the creation and deletion, you can show updating the resource (if applicable)
+
+# Tests
+
+You can run `pip install -r requirements.dev.txt && pytest` to run tests.
+They should all pass.

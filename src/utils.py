@@ -44,7 +44,7 @@ def find_any_repo(context):
 
     with http_logging.temporarily_disabled():
         project = find_any_project(context)
-        git_client = context.connection.get_client("vsts.git.v4_1.git_client.GitClient")
+        git_client = context.connection.get_client("vsts.git.v4_0.git_client.GitClient")
         repos = git_client.get_repositories(project.id)
 
     try:

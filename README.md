@@ -1,11 +1,11 @@
-# Visual Studio Team Services Samples for Python
+# Python samples for Azure DevOps
 
-This repository contains Python samples that show how to integrate with Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) using [the VSTS Python API](https://github/Microsoft/vsts-python-api/).
+This repository contains Python samples that show how to integrate with Azure DevOps and Team Foundation Server (TFS) using the [Azure DevOps Python API](https://github/Microsoft/vsts-python-api/).
 
 ## Explore
 
 Samples are organized by "area" (service) and "resource" within the `samples` package.
-Each sample module shows various ways for interacting with VSTS and TFS.
+Each sample module shows various ways for interacting with Azure DevOps and TFS.
 Resources may have multiple samples, since there are often multiple ways to query for a given resource.
 
 ## Installation
@@ -18,9 +18,11 @@ Now you can run `runner.py` with no arguments to see available options.
 
 ## Run the samples - command line
 
-1. Get a [personal access token](https://docs.microsoft.com/en-us/vsts/accounts/use-personal-access-tokens-to-authenticate).
+> **VERY IMPORTANT**: some samples are destructive! It is recommended that you run these samples against a test organization.
 
-2. Store the PAT and base account URL you'll be running samples against:
+1. Get a [personal access token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
+
+2. Store the PAT and organization URL you'll be running samples against (note: some samples are destructive, so use a test organization):
    * `runner.py config url --set-to https://fabrikam.visualstudio.com`
    * `runner.py config pat --set-to ABC123`
    * If you don't want your PAT persisted to a file, you can put it in an environment variable called `VSTS_PAT` instead
@@ -29,8 +31,6 @@ Now you can run `runner.py` with no arguments to see available options.
    * `{area}`: API area (currently core, git, and work_item_tracking) to run the client samples for. Use `all` to include all areas.
    * `{resource}`: API resource to run the client samples for. Use `all` to include all resources.
    * You can optionally pass `--url {url}` to override your configured URL
-
-> **IMPORTANT**: some samples are destructive. It is recommended that you first run the samples against a test account.
 
 ### Examples
 
@@ -99,7 +99,7 @@ You'll get a web browser where you can enter URL, authentication token, and choo
 
 4. Run `jupyter notebook`. In the resulting web browser, click **API Samples.ipynb**.
 
-5. Click **Run** in the top cell. Scroll down and you'll see a form where you can enter your account or collection URL, PAT, and choose which samples to run.
+5. Click **Run** in the top cell. Scroll down and you'll see a form where you can enter your organization or TFS collection URL, PAT, and choose which samples to run.
 
 > **IMPORTANT**: some samples are destructive. It is recommended that you first run the samples against a test account.
 

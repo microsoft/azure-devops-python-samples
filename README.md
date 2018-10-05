@@ -1,6 +1,6 @@
 # Python samples for Azure DevOps
 
-This repository contains Python samples that show how to integrate with Azure DevOps and Team Foundation Server (TFS) using [the Azure DevOps Python API](https://github/Microsoft/vsts-python-api/).
+This repository contains Python samples that show how to integrate with Azure DevOps and Team Foundation Server (TFS) using the [Azure DevOps Python API](https://github/Microsoft/vsts-python-api/).
 
 ## Explore
 
@@ -18,7 +18,7 @@ Now you can run `runner.py` with no arguments to see available options.
 
 ## Run the samples - command line
 
-> **IMPORTANT**: some samples are DESTRUCTIVE! It is recommended that you run the samples against a test organization.
+> **VERY IMPORTANT**: some samples are destructive! It is recommended that you run these samples against a test organization.
 
 1. Get a [personal access token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
 

@@ -1,5 +1,5 @@
 """
-VSTS Python API sample runner.
+Azure DevOps Python API sample runner.
 """
 import argparse
 import logging
@@ -33,7 +33,7 @@ def main(url, area, resource, auth_token, output_path=None):
     context.connection = VssConnection(
         base_url=url,
         creds=BasicAuthentication('PAT', auth_token),
-        user_agent='vsts-python-samples/' + __VERSION__)
+        user_agent='azure-devops-python-samples/' + __VERSION__)
 
     # if the user asked for logging:
     # - add a hook for logging the http request
@@ -96,13 +96,13 @@ def list_cmd(args, config):
 
 def run_cmd(args, config):
     try:
-        auth_token = os.environ['VSTS_PAT']
+        auth_token = os.environ['AZURE_DEVOPS_PAT']
     except KeyError:
         if config['pat']:
             emit("Using auth token from config file")
             auth_token = config['pat']
         else:
-            emit('You must first set the VSTS_PAT environment variable or the `pat` config setting')
+            emit('You must first set the AZURE_DEVOPS_PAT environment variable or the `pat` config setting')
             sys.exit(1)
 
     if not args.url:
@@ -157,7 +157,7 @@ def config_cmd(args, config):
 if __name__ == '__main__':
 
     # main parser
-    parser = argparse.ArgumentParser(description='VSTS Python API samples')
+    parser = argparse.ArgumentParser(description='Azure DevOps Python API samples')
     subparsers = parser.add_subparsers()
 
     # "list"
@@ -168,7 +168,7 @@ if __name__ == '__main__':
     run_parser = subparsers.add_parser('run')
     run_parser.add_argument('area', help='Product area to run samples for, or `all`')
     run_parser.add_argument('resource', help='Resource to run samples for, or `all`')
-    run_parser.add_argument('-u', '--url', help='Base URL of your VSTS or TFS instance')
+    run_parser.add_argument('-u', '--url', help='Base URL of your Azure DevOps or TFS instance')
     run_parser.add_argument('-o', '--output-path', help='Root folder to save request/response data',
                             metavar='DIR')
     run_parser.set_defaults(dispatch=run_cmd)

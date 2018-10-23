@@ -1,6 +1,6 @@
 # Python samples for Azure DevOps
 
-This repository contains Python samples that show how to integrate with Azure DevOps and Team Foundation Server (TFS) using the [Azure DevOps Python API](https://github.com/Microsoft/vsts-python-api/).
+This repository contains Python samples that show how to integrate with Azure DevOps and Team Foundation Server (TFS) using the [Azure DevOps Python API](https://github.com/Microsoft/azure-devops-python-api).
 
 ## Explore
 
@@ -25,7 +25,7 @@ Now you can run `runner.py` with no arguments to see available options.
 2. Store the PAT and organization URL you'll be running samples against (note: some samples are destructive, so use a test organization):
    * `runner.py config url --set-to https://fabrikam.visualstudio.com`
    * `runner.py config pat --set-to ABC123`
-   * If you don't want your PAT persisted to a file, you can put it in an environment variable called `VSTS_PAT` instead
+   * If you don't want your PAT persisted to a file, you can put it in an environment variable called `AZURE_DEVOPS_PAT` instead
 
 3. Run `runner.py run {area} {resource}` with the 2 required arguments:
    * `{area}`: API area (currently core, git, and work_item_tracking) to run the client samples for. Use `all` to include all areas.

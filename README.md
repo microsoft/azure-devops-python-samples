@@ -23,12 +23,12 @@ Now you can run `runner.py` with no arguments to see available options.
 1. Get a [personal access token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
 
 2. Store the PAT and organization URL you'll be running samples against (note: some samples are destructive, so use a test organization):
-   * `runner.py config url --set-to https://fabrikam.visualstudio.com`
-   * `runner.py config pat --set-to ABC123`
+   * `python runner.py config url --set-to https://fabrikam.visualstudio.com`
+   * `python runner.py config pat --set-to ABC123`
    * If you don't want your PAT persisted to a file, you can put it in an environment variable called `AZURE_DEVOPS_PAT` instead
 
-3. Run `runner.py run {area} {resource}` with the 2 required arguments:
-   * `{area}`: API area (currently core, git, and work_item_tracking) to run the client samples for. Use `all` to include all areas.
+3. Run `python runner.py run {area} {resource}` with the 2 required arguments:
+   * `{area}`: API area (currently `core`, `git`, and `work_item_tracking`) to run the client samples for. Use `all` to include all areas.
    * `{resource}`: API resource to run the client samples for. Use `all` to include all resources.
    * You can optionally pass `--url {url}` to override your configured URL
 

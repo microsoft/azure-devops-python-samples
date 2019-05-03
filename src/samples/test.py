@@ -12,13 +12,13 @@ logger = logging.getLogger(__name__)
 
 
 def get_project_names(context):
-    core_client = context.connection.get_client("vsts.core.v4_1.core_client.CoreClient")
+    core_client = context.connection.clients.get_core_client()
     return (project.name for project in core_client.get_projects())
 
 
 @resource("test_plans")
 def get_plans(context):
-    test_client = context.connection.get_client("vsts.test.v4_1.test_client.TestClient")
+    test_client = context.connection.clients.get_test_client()
     for project in get_project_names(context):
         try:
             for plan in test_client.get_plans(project):
@@ -29,7 +29,7 @@ def get_plans(context):
 
 @resource("test_suites")
 def get_test_suites_for_plan(context):
-    test_client = context.connection.get_client("vsts.test.v4_1.test_client.TestClient")
+    test_client = context.connection.clients.get_test_client()
     for project in get_project_names(context):
         try:
             for plan in test_client.get_plans(project):
@@ -45,7 +45,7 @@ def get_test_suites_for_plan(context):
 
 @resource("test_runs")
 def get_test_runs(context):
-    test_client = context.connection.get_client("vsts.test.v4_1.test_client.TestClient")
+    test_client = context.connection.clients.get_test_client()
     for project in get_project_names(context):
         try:
             for run in test_client.get_test_runs(project, top=16):
@@ -60,7 +60,7 @@ def get_test_runs(context):
 
 @resource("test_results")
 def get_test_results(context):
-    test_client = context.connection.get_client("vsts.test.v4_1.test_client.TestClient")
+    test_client = context.connection.clients.get_test_client()
     for project in get_project_names(context):
         try:
             for run in test_client.get_test_runs(project, top=10):

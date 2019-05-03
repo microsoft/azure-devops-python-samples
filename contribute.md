@@ -34,7 +34,7 @@
     def get_repos(context):
         project = find_any_project(context)
 
-        git_client = context.connection.get_client("vsts.git.git_client.GitClient")
+        git_client = context.connection.clients.get_git_client()
 
         repos = git_client.get_repositories(project.id)
         for repo in repos:

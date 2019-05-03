@@ -6,7 +6,8 @@ import sys
 from utils import emit
 
 
-DEFAULT_CONFIG_FILE_NAME = "vsts-runner-config.json"
+DEFAULT_CONFIG_FILE_NAME = "azure-devops-runner-config.json"
+OLD_DEFAULT_CONFIG_FILE_NAME = "vsts-runner-config.json"
 CONFIG_KEYS = [
     'url',
     'pat',
@@ -25,6 +26,11 @@ class Config():
             with open(filename) as config_fp:
                 self._config = json.load(config_fp)
         except FileNotFoundError:
+            emit("warning: no config file found.")
+            emit("The default filename has changed. You may need to rename")
+            emit(OLD_DEFAULT_CONFIG_FILE_NAME)
+            emit("to")
+            emit(DEFAULT_CONFIG_FILE_NAME)
             self._config = {}
         except json.JSONDecodeError:
             emit("possible bug: config file exists but isn't parseable")

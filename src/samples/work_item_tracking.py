@@ -7,7 +7,7 @@ import logging
 from samples import resource
 from utils import emit
 
-from vsts.work_item_tracking.v4_1.models.wiql import Wiql
+from azure.devops.v5_1.work_item_tracking.models import Wiql
 
 logger = logging.getLogger(__name__)
 
@@ -24,9 +24,7 @@ def print_work_item(work_item):
 
 @resource("work_items")
 def get_work_items(context):
-    wit_client = context.connection.get_client(
-        "vsts.work_item_tracking.v4_1.work_item_tracking_client.WorkItemTrackingClient"
-    )
+    wit_client = context.connection.clients.get_work_item_tracking_client()
 
     desired_ids = range(1, 51)
     work_items = wit_client.get_work_items(ids=desired_ids, error_policy="omit")
@@ -42,9 +40,7 @@ def get_work_items(context):
 
 @resource("work_items")
 def get_work_items_as_of(context):
-    wit_client = context.connection.get_client(
-        "vsts.work_item_tracking.v4_1.work_item_tracking_client.WorkItemTrackingClient"
-    )
+    wit_client = context.connection.clients.get_work_item_tracking_client()
 
     desired_ids = range(1, 51)
     as_of_date = datetime.datetime.now() + datetime.timedelta(days=-7)
@@ -63,9 +59,7 @@ def get_work_items_as_of(context):
 
 @resource("wiql_query")
 def wiql_query(context):
-    wit_client = context.connection.get_client(
-        "vsts.work_item_tracking.v4_1.work_item_tracking_client.WorkItemTrackingClient"
-    )
+    wit_client = context.connection.clients.get_work_item_tracking_client()
     wiql = Wiql(
         query="""
         select [System.Id],

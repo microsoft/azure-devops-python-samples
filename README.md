@@ -23,7 +23,7 @@ Now you can run `runner.py` with no arguments to see available options.
 1. Get a [personal access token](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
 
 2. Store the PAT and organization URL you'll be running samples against (note: some samples are destructive, so use a test organization):
-   * `python runner.py config url --set-to https://fabrikam.visualstudio.com`
+   * `python runner.py config url --set-to https://dev.azure.com/fabrikam`
    * `python runner.py config pat --set-to ABC123`
    * If you don't want your PAT persisted to a file, you can put it in an environment variable called `AZURE_DEVOPS_PAT` instead
 

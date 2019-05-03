@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 @resource('projects')
 def get_projects(context):
-    core_client = context.connection.get_client("vsts.core.v4_1.core_client.CoreClient")
+    core_client = context.connection.clients.get_core_client()
 
     projects = core_client.get_projects()
 

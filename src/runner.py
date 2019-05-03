@@ -10,8 +10,8 @@ from types import SimpleNamespace
 
 # logging.basicConfig(level=logging.INFO)
 
-from vsts.credentials import BasicAuthentication
-from vsts.vss_connection import VssConnection
+from azure.devops.credentials import BasicAuthentication
+from azure.devops.connection import Connection
 
 from config import Config
 import http_logging
@@ -30,7 +30,7 @@ def main(url, area, resource, auth_token, output_path=None):
     context.runner_cache = SimpleNamespace()
 
     # setup the connection
-    context.connection = VssConnection(
+    context.connection = Connection(
         base_url=url,
         creds=BasicAuthentication('PAT', auth_token),
         user_agent='azure-devops-python-samples/' + __VERSION__)

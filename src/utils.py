@@ -23,7 +23,7 @@ def find_any_project(context):
         return context.runner_cache.project
 
     with http_logging.temporarily_disabled():
-        core_client = context.connection.get_client("vsts.core.v4_1.core_client.CoreClient")
+        core_client = context.connection.clients.get_core_client()
         projects = core_client.get_projects()
 
     try:
@@ -44,7 +44,7 @@ def find_any_repo(context):
 
     with http_logging.temporarily_disabled():
         project = find_any_project(context)
-        git_client = context.connection.get_client("vsts.git.v4_1.git_client.GitClient")
+        git_client = context.connection.clients.get_git_client()
         repos = git_client.get_repositories(project.id)
 
     try:

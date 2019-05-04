@@ -52,3 +52,23 @@ def find_any_repo(context):
         return context.runner_cache.repo
     except IndexError:
         raise AccountStateError('Project "%s" doesn''t appear to have any repos.' % (project.name,))
+
+
+def find_any_build_definition(context):
+    logger.debug('finding any build definition')
+
+    # if a repo is cached, use it
+    if hasattr(context.runner_cache, 'build_definition'):
+        logger.debug('using cached definition %s', context.runner_cache.build_definition.name)
+        return context.runner_cache.build_definition
+
+    with http_logging.temporarily_disabled():
+        project = find_any_project(context)
+        build_client = context.connection.clients.get_build_client()
+        definitions = build_client.get_definitions(project.id)
+
+    try:
+        context.runner_cache.build_definition = definitions[0]
+        return context.runner_cache.build_definition
+    except IndexError:
+        raise AccountStateError('Project "%s" doesn''t appear to have any build definitions.' % (project.name,))

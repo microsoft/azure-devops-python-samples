@@ -5,7 +5,6 @@ import logging
 
 from samples import resource
 from utils import emit, find_any_project, find_any_build_definition
-from azure.devops.v5_1.build.models import Build, DefinitionReference
 
 
 logger = logging.getLogger(__name__)
@@ -31,12 +30,14 @@ def queue_build(context):
 
     build_client = context.connection.clients.get_build_client()
 
-    build = Build(
-        definition=DefinitionReference(
-            id=definition.id
-        )
-    )
+    build = {
+        'definition': {
+            'id': definition.id
+        }
+    }
 
     response = build_client.queue_build(build=build, project=definition.project.id)
 
     emit(str(response.id) + ": " + response.url)
+
+    return response

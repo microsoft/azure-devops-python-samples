@@ -2,6 +2,10 @@
 
 This repository contains Python samples that show how to integrate with Azure DevOps and Team Foundation Server (TFS) using the [Azure DevOps Python API](https://github.com/Microsoft/azure-devops-python-api).
 
+**As of January 2021, we're no longer actively maintaining this repo.**
+Feel free to continue using it for inspiration or examples.
+We won't be updating or adding any samples, though.
+
 ## Explore
 
 Samples are organized by "area" (service) and "resource" within the `samples` package.
@@ -105,15 +109,17 @@ You'll get a web browser where you can enter URL, authentication token, and choo
 
 ## Contribute
 
-This project welcomes contributions and suggestions.
-Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution.
-For details, visit https://cla.microsoft.com.
+This repo is no longer maintained, and therefore is not accepting new contributions.
 
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment).
+~~This project welcomes contributions and suggestions.
+Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution.
+For details, visit https://cla.microsoft.com.~~
+
+~~When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment).
 Simply follow the instructions provided by the bot.
-You will only need to do this once across all repos using our CLA.
+You will only need to do this once across all repos using our CLA.~~
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-See detailed instructions on how to [contribute a sample](./contribute.md).
+~~See detailed instructions on how to [contribute a sample](./contribute.md).~~

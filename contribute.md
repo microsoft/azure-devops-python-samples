@@ -1,5 +1,9 @@
 # Contribute to the samples
 
+**As of January 2021, this repo is no longer being actively maintained.
+It no longer accepts contributions.**
+This document remains to explain how the samples are laid out.
+
 ## Organization and style
 
 1. Samples for an API area should live together under the `samples` package. Each module is an area.
